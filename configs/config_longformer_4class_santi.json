@@ -3,7 +3,7 @@
     "processed_dataset_path": "data/processed/FULL_no_reform.jsonl",
     "max_examples_per_split": 10000
   },
-  "longformer": {
+  "model": {
     "model_name": "allenai/longformer-base-4096",
     "max_length": 2048,
     "label_map": {

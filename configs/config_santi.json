@@ -29,7 +29,7 @@
     "cross_encoder_model_name": "cross-encoder/ms-marco-MiniLM-L-6-v2",
     "reset_collection": true
   },
-  "longformer": {
+  "model": {
     "model_name": "allenai/scibert_scivocab_uncased",
     "max_length": 512,
     "label_map": {

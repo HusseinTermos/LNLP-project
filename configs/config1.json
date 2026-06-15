@@ -3,7 +3,7 @@
     "local_dir": "data",
     "claim_column": "claim",
     "label_column": "label",
-    "processed_dataset_path": "data/processed/FULL_no_reform_TEST.jsonl",
+    "processed_dataset_path": "data/processed/FULL_no_reform.jsonl",
     "max_examples_per_split": 10000
   },
   "reformulation": {
@@ -43,7 +43,7 @@
     }
   },
   "training": {
-    "processed_dataset_path": "data/processed/FULL_no_reform_TEST.jsonl",
+    "processed_dataset_path": "data/processed/FULL_no_reform.jsonl",
     "output_dir": "models/scibert_4class_rag",
     "epochs": 5,
     "learning_rate": 1e-5,
