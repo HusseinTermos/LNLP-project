@@ -1,0 +1,31 @@
+{
+  "data": {
+    "processed_dataset_path": "data/processed/FULL_no_reform.jsonl",
+    "max_examples_per_split": 10000
+  },
+  "longformer": {
+    "model_name": "allenai/longformer-base-4096",
+    "max_length": 2048,
+    "label_map": {
+      "false": 0,
+      "mixture": 1,
+      "true": 2,
+      "unproven": 3
+    }
+  },
+  "training": {
+    "processed_dataset_path": "data/processed/FULL_no_reform.jsonl",
+    "output_dir": "models/longformer_4class_santi",
+    "epochs": 5,
+    "learning_rate": 2e-5,
+    "weight_decay": 0.01,
+    "label_smoothing_factor": 0.05,
+    "warmup_ratio": 0.06,
+    "logging_steps": 50,
+    "batch_size": 4,
+    "gradient_accumulation_steps": 4,
+    "oversample_minority_classes": true,
+    "use_class_weights": false,
+    "early_stopping_patience": 2
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "data": {
+    "local_dir": "data",
+    "claim_column": "claim",
+    "label_column": "label",
+    "processed_dataset_path": "data/processed/FULL_no_reform_TEST.jsonl",
+    "max_examples_per_split": 10000
+  },
+  "reformulation": {
+    "enabled": false,
+    "model_name": "Qwen/Qwen2.5-1.5B-Instruct",
+    "model_load_mode": "local",
+    "batch_size": 16,
+    "temperature": 0.3,
+    "max_new_tokens": 64,
+    "cache_path": "data/cache/reformulation_cache_emphasize_nothing_extra.json"
+  },
+  "external_corpus": {
+    "num_pubmed_abstracts": 30000,
+    "num_wikipedia_articles": 10000
+  },
+  "rag": {
+    "knowledge_base": "external_health",
+    "query_source": "original",
+    "top_k": 5,
+    "method": "cross_encoder",
+    "chunk_size": 150,
+    "chunk_overlap": 30,
+    "embedding_model_name": "BAAI/bge-small-en-v1.5",
+    "cross_encoder_model_name": "cross-encoder/ms-marco-MiniLM-L-6-v2",
+    "reset_collection": true
+  },
+  "model": {
+    "architecture": "auto",
+    "model_name": "allenai/scibert_scivocab_uncased",
+    "max_length": 512,
+    "input_mode": "claim_query_rag",
+    "label_map": {
+      "false": 0,
+      "mixture": 1,
+      "true": 2,
+      "unproven": 3
+    }
+  },
+  "training": {
+    "processed_dataset_path": "data/processed/FULL_no_reform_TEST.jsonl",
+    "output_dir": "models/scibert_4class_rag",
+    "epochs": 5,
+    "learning_rate": 1e-5,
+    "weight_decay": 0.1,
+    "label_smoothing_factor": 0.05,
+    "logging_steps": 20,
+    "save_steps": 300,
+    "batch_size": 8,
+    "gradient_accumulation_steps": 2,
+    "oversample_minority_classes": true,
+    "early_stopping_patience": 2,
+    "min_chunk_score": 0
+  },
+  "inference": {
+    "model_dir": null,
+    "batch_size": 4,
+    "max_examples": 3000
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "data": {
+    "processed_dataset_path": "data/processed/FULL_no_reform.jsonl",
+    "max_examples_per_split": 10000
+  },
+  "model": {
+    "model_name": "allenai/scibert_scivocab_uncased",
+    "max_length": 512,
+    "label_map": {
+      "false": 0,
+      "mixture": 1,
+      "true": 2,
+      "unproven": 3
+    }
+  },
+  "training": {
+    "processed_dataset_path": "data/processed/FULL_no_reform.jsonl",
+    "output_dir": "models/scibert_no_rag_santi",
+    "epochs": 5,
+    "learning_rate": 1e-5,
+    "weight_decay": 0.1,
+    "label_smoothing_factor": 0.05,
+    "warmup_ratio": 0.06,
+    "logging_steps": 20,
+    "batch_size": 16,
+    "gradient_accumulation_steps": 1,
+    "oversample_minority_classes": true,
+    "use_class_weights": false,
+    "early_stopping_patience": 2
+  }
+}
